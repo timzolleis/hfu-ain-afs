@@ -14,7 +14,7 @@ public class WordImpl implements Word {
 
     public char position(final int k) {
         final int index = k - 1;
-        if (index >= this.contents.length()) {
+        if (index < 0 || index >= this.contents.length()) {
             throw new IndexOutOfBoundsException("Index" + index + " out of bounds");
         }
         return this.contents.charAt(index);
