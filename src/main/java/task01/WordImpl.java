@@ -25,7 +25,8 @@ public class WordImpl implements Word {
     }
 
     public Word concat(Word word) {
-        return new WordImpl(this.getContents() + word.getContents());
+        final String newContents = this.contents.concat(word.getContents());
+        return new WordImpl(newContents);
     }
 
     public int count(char c) {
