@@ -46,6 +46,9 @@ public class WordImpl implements Word {
     public final Word substring(int start, int length) {
         final int startIndex = start - 1;
         final int endIndex = start + length - 1;
+        if (startIndex < 0 || endIndex > this.contents.length()) {
+            throw new IndexOutOfBoundsException("Index out of bounds");
+        }
         return new WordImpl(this.contents.substring(startIndex, endIndex));
     }
 
