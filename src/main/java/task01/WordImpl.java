@@ -5,51 +5,51 @@ import lombok.Getter;
 @Getter
 public class WordImpl implements Word {
 
-    private final String contents;
+    public final String contents;
 
-    public WordImpl(String contents) {
+    public WordImpl(final String contents) {
         this.contents = contents;
     }
 
 
-    public char position(final int k) {
+    public final char position(final int k) {
         final int index = k - 1;
-        if (index < 0 || index >= this.contents.length()) {
+        if (index < 0 || index > this.contents.length()) {
             throw new IndexOutOfBoundsException("Index" + index + " out of bounds");
         }
         return this.contents.charAt(index);
     }
 
-    public int length() {
+    public final int length() {
         return this.contents.length();
     }
 
-    public Word concat(Word word) {
+    public final Word concat(Word word) {
         final String newContents = this.contents.concat(word.getContents());
         return new WordImpl(newContents);
     }
 
-    public int count(char c) {
+    public final int count(char c) {
         return (int) this.contents.chars().filter(character -> character == c).count();
     }
 
-    public Word change(char char1, char char2) {
+    public final Word replaceChar(char char1, char char2) {
         final String newContents = this.contents.replace(char1, char2);
         return new WordImpl(newContents);
     }
 
-    public int isSubstringOf(Word word) {
+    public final int isSubstringOf(Word word) {
         final int index = this.contents.indexOf(word.getContents());
         return index == -1 ? 0 : index + 1;
     }
 
-    public Word substring(int start, int length) {
+    public final Word substring(int start, int length) {
         final int startIndex = start - 1;
         final int endIndex = start + length - 1;
         return new WordImpl(this.contents.substring(startIndex, endIndex));
     }
 
-    public Word replace(Word word1, Word word2) {
+    public final Word replace(Word word1, Word word2) {
         final String contentToReplace = word1.getContents();
         final String replacementContent = word2.getContents();
         final String newContents = this.contents.replace(contentToReplace, replacementContent);

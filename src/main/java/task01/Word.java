@@ -9,7 +9,7 @@ public interface Word {
 
     int count(final char c);
 
-    Word change(final char char1, final char char2);
+    Word replaceChar(final char char1, final char char2);
 
     int isSubstringOf(Word word);
 

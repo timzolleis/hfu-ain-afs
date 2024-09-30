@@ -77,10 +77,10 @@ public class WordImplTest {
         Word w1 = new WordImpl("hoch");
         Word w2 = new WordImpl("aaabbbccc");
 
-        assertEquals(new WordImpl("_oc_"), w1.change('h', '_'));
-        assertEquals(new WordImpl("aaabbbccc"), w2.change('d', 'c'));
-        assertEquals(new WordImpl("aaabbbccc"), w2.change('c', 'c'));
-        assertEquals(w2, w2.change('a', 'd').change('d', 'a'));
+        assertEquals(new WordImpl("_oc_"), w1.replaceChar('h', '_'));
+        assertEquals(new WordImpl("aaabbbccc"), w2.replaceChar('d', 'c'));
+        assertEquals(new WordImpl("aaabbbccc"), w2.replaceChar('c', 'c'));
+        assertEquals(w2, w2.replaceChar('a', 'd').replaceChar('d', 'a'));
     }
 
     @Test
