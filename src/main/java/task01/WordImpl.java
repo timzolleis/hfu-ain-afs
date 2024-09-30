@@ -37,9 +37,9 @@ public class WordImpl implements Word {
         return new WordImpl(newContents);
     }
 
-    //TODO: Implement this method
     public int isSubstringOf(Word word) {
-        return -1;
+        final int index = this.contents.indexOf(word.getContents());
+        return index == -1 ? 0 : index + 1;
     }
 
     public Word substring(int start, int length) {
