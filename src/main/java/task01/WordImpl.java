@@ -25,7 +25,7 @@ public class WordImpl implements Word {
     }
 
     public final Word concat(Word word) {
-        final String newContents = this.contents.concat(word.getContents());
+        final String newContents = this.contents.concat(word.toString());
         return new WordImpl(newContents);
     }
 
@@ -39,7 +39,7 @@ public class WordImpl implements Word {
     }
 
     public final int isSubstringOf(Word word) {
-        final int index = this.contents.indexOf(word.getContents());
+        final int index = this.contents.indexOf(word.toString());
         return index == -1 ? 0 : index + 1;
     }
 
@@ -53,8 +53,8 @@ public class WordImpl implements Word {
     }
 
     public final Word replace(Word word1, Word word2) {
-        final String contentToReplace = word1.getContents();
-        final String replacementContent = word2.getContents();
+        final String contentToReplace = word1.toString();
+        final String replacementContent = word2.toString();
         final String newContents = this.contents.replace(contentToReplace, replacementContent);
         return new WordImpl(newContents);
     }
@@ -67,5 +67,9 @@ public class WordImpl implements Word {
             return false;
         }
         return this.contents.equals(word.contents);
+    }
+
+    public final String toString() {
+        return this.contents;
     }
 }

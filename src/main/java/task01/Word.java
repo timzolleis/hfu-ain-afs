@@ -17,7 +17,4 @@ public interface Word {
 
     Word replace(final Word word1, final Word word2);
 
-    //Getters
-    String getContents();
-
 }
